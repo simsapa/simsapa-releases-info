@@ -100,16 +100,38 @@ def releases():
         except Exception as e:
             return Response(str(e), 400)
 
-        no_stats = params.get('no_stats', False)
+        val = params.get('no_stats', False)
+
+        if isinstance(val, bool):
+            no_stats = val
+        elif isinstance(val, str):
+            no_stats = (val.lower() == "true")
+        else:
+            no_stats = False
 
         if params.get('channel', 'main') == 'development':
             toml_file_path = RELEASES_TOML_DEV_PATH
 
         if not no_stats:
+            # On PythonAnywhere, request.remote_addr is the proxy's address.
+            # The real remote IP is the first item of the "X-Forwarded-For" header.
+            remote_addr = None
+            if request.headers.getlist("X-Forwarded-For"):
+                ips = request.headers.getlist("X-Forwarded-For")
+                if len(ips) > 0:
+                    remote_addr = ips[0]
+
+            # Or try the "X-Real-IP" header.
+            if remote_addr is None:
+                remote_addr = request.headers.get("X-Real-IP")
+
+            if remote_addr is None:
+                remote_addr = request.remote_addr
+
             with app.app_context():
                 item = Stat(
                     params_json = json.dumps(params),
-                    remote_addr = str(request.remote_addr),
+                    remote_addr = str(remote_addr),
                 )
                 db.session.add(item)
                 db.session.commit()
