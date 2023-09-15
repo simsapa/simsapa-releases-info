@@ -78,6 +78,10 @@ login_manager.init_app(app)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
+    return "☸", 200
+
+@app.route('/releases', methods = ['GET', 'POST'])
+def releases():
     toml_file_path = RELEASES_TOML_MAIN_PATH
 
     if request.method == 'GET':
