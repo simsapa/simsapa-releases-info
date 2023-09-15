@@ -1,0 +1,102 @@
+[application]
+
+[[application.releases]]
+date = "2023-04-25T13:30:00"
+version_tag = "v0.3.3-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "Fixes"
+description = """
+- Fixed: network connection timeout breaks asset download window
+- Fixed: (Mac) Ebook Reader window resizes itself on TOC click
+- Fixed: Right-click > Copy uid copies only the first tab
+"""
+
+[[application.releases]]
+date = "2023-04-18T21:17:00"
+version_tag = "v0.3.2-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "Fixes"
+description = """
+- Fixed: Dictionary Window doesn't render words
+- Fixed: closing Sutta Languages window quits the app
+"""
+
+[[application.releases]]
+date = "2023-04-18T08:43:00"
+version_tag = "v0.3.1-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "Improvements and fixes"
+description = """
+Improvements:
+
+- Links Graph: hover preview
+- Word Lookup: use Ctrl+L to focus search input
+
+Fixes:
+
+- Ebook Reader: file encoding error
+- Sutta Study: smaller minimum width
+- Sutta Study: text should respond to View > Increase / Decrease Text Size
+- GPT Prompts: fix `Tokenizer error: Unknown encoding cl100k_base`
+- (Mac) Increase hover preview windows distance from links
+- Send to Kindle: fix MOBI path
+- Send to Kindle: Kindle Library rejects the exported sutta EPUB
+"""
+
+[[application.releases]]
+date = "2023-04-13T13:57:21"
+version_tag = "v0.3.0-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "New features and database update"
+description = """
+New features:
+
+- Sutta translation languages
+- Sutta Index window (offline copy of [index.readingfaithfully.org](https://index.readingfaithfully.org/))
+- GPT Prompts window
+- Send to Kindle, Send to reMarkable
+- Export a sutta as EPUB or MOBI
+- Export a list of bookmarked suttas
+- Ebook Reader, with auto-linked sutta references to open in Simsapa
+- Double-click a word to lookup in the dictionary
+- Regex search option
+- Sutta Nipāta translations from Ven. Ñāṇadīpa ([The Silent Sages of Old (2020)](https://pathpress.org/new-the-silent-sages-of-old-pdf/))
+"""
+
+[[application.releases]]
+date = "2023-01-16T07:16:58"
+version_tag = "v0.2.0-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "New features and database update"
+description = """
+New features:
+
+- Link Preview window
+- Cross-reference links from dictionary words to suttas
+- Word example sutta links in DPD dictionary
+- Bookmarks with comments
+- Pali Courses, vocabulary and sentence translation exercises
+- Sutta reading: Line by Line view, Pali and translation
+- Search modes: Exact Match, Title- and Headword Match
+"""
+
+[assets]
+
+[[assets.releases]]
+date = "2023-04-13T13:57:21"
+version_tag = "v0.3.0-alpha.1"
+github_repo = "simsapa/simsapa-assets"
+suttas_lang = ["af", "ar", "au", "bn", "ca", "cs", "de", "es", "ev", "fa", "fi", "fr", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "kln", "ko", "la", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sld", "sl", "sr", "sv", "ta", "th", "vi", "vu", "xct", "zh"]
+title = "Updates"
+description = "New database assets."
+
+[[assets.releases]]
+date = "2023-01-16T07:16:58"
+version_tag = "v0.2.0-alpha.1"
+github_repo = "simsapa/simsapa-assets"
+suttas_lang = []
+title = "Updates"
+description = ""
+
+[dpd]
+releases_feed_url = "https://github.com/digitalpalidictionary/digitalpalidictionary/releases.atom"

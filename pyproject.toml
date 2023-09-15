@@ -11,8 +11,19 @@ packages = []
 python = "^3.10"
 flask = "^2.3.3"
 tomlkit = "^0.12.1"
+flask-sqlalchemy = "^3.1.1"
+flask-login = "^0.6.2"
+python-dotenv = "^1.0.0"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+pythonVersion = "3.10"
+typeCheckingMode = "basic"
+
+[tool.ruff]
+ignore = ["E401", "E501", "E712"]
+target-version = "py310"
