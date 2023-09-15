@@ -20,10 +20,11 @@ from sqlalchemy import Integer, String, DateTime
 app = Flask(__name__)
 # app.config["DEBUG"] = True
 
-IS_PYTHONANYWHERE = ('liveconsole' in gethostname())
+IS_PYTHONANYWHERE = ('console' in gethostname())
 
 # .env file is in project root
-load_dotenv(Path(__file__).parent.joinpath('.env'))
+# load_dotenv(Path(__file__).parent.joinpath('.env'))
+load_dotenv("/home/simsapa/simsapa-releases-info/.env")
 
 s = os.getenv('SECRET_API_KEY')
 if s is not None and s != '':
@@ -60,8 +61,8 @@ db = SQLAlchemy(app, model_class=Base)
 class Stat(db.Model):
     __tablename__ = "stats"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    params_json: Mapped[str] = mapped_column(String, unique=False, nullable=False)
-    remote_addr: Mapped[Optional[str]] = mapped_column(String, unique=False, nullable=True)
+    params_json: Mapped[str] = mapped_column(String(500), unique=False, nullable=False)
+    remote_addr: Mapped[Optional[str]] = mapped_column(String(100), unique=False, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
 
     def __init__(self, **kwargs):
@@ -115,7 +116,7 @@ def index():
     return jsonify(parse_toml(toml_file_path)), 200
 
 @login_manager.request_loader
-@app.route('/export', methods = ['GET',])
+@app.route('/export', methods = ['GET'])
 def export():
     # Must use https:// except when testing locally.
     # Otherwise the Basic Auth creds are sent in clear text.
