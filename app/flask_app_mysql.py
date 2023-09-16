@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from socket import gethostname
-from typing import Optional
+from typing import Optional, Dict
 from pathlib import Path
 from datetime import datetime
 import os, json, base64
@@ -10,9 +10,12 @@ import tomlkit
 from tomlkit import TOMLDocument
 from dotenv import load_dotenv
 
-from flask import Flask, abort, jsonify, request, send_file
+from flask import Flask, abort, jsonify, request
 from flask.wrappers import Response
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from sqlalchemy.orm import Mapped, declarative_base, mapped_column
+from sqlalchemy import Integer, String, DateTime
 
 app = Flask(__name__)
 # app.config["DEBUG"] = True
@@ -29,13 +32,46 @@ if s is not None and s != '':
 else:
     SECRET_API_KEY = None
 
+if IS_PYTHONANYWHERE:
+    d = dict()
+    for key in ['MYSQL_HOST', 'MYSQL_DB_NAME', 'MYSQL_USER', 'MYSQL_PASS']:
+        s = os.getenv(key)
+        d[key] = s
+
+    databasename = "%s$%s" % (d['MYSQL_USER'], d['MYSQL_DB_NAME'])
+
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+        username = d['MYSQL_USER'],
+        password = d['MYSQL_PASS'],
+        hostname = d['MYSQL_HOST'],
+        databasename = databasename,
+    )
+
+else:
+    SQLALCHEMY_DATABASE_URI = "sqlite:///appdata.sqlite"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {'pool_recycle' : 280}
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+Base = declarative_base()
+
+db = SQLAlchemy(app, model_class=Base)
+
+class Stat(db.Model):
+    __tablename__ = "stats"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    params_json: Mapped[str] = mapped_column(String(500), unique=False, nullable=False)
+    remote_addr: Mapped[Optional[str]] = mapped_column(String(100), unique=False, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
+
+    def __init__(self, **kwargs):
+        super(Stat, self).__init__(**kwargs)
+
 ASSETS_DIR = Path(__file__).parent.joinpath("assets")
 RELEASES_TOML_MAIN_PATH = ASSETS_DIR.joinpath("releases.toml")
 RELEASES_TOML_DEV_PATH = ASSETS_DIR.joinpath("releases-dev.toml")
-STATS_TSV_PATH = ASSETS_DIR.joinpath("stats.tsv")
-
-if not STATS_TSV_PATH.exists():
-    STATS_TSV_PATH.touch()
+STATS_CSV_PATH = ASSETS_DIR.joinpath("stats.csv")
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -92,10 +128,13 @@ def releases():
             if remote_addr is None:
                 remote_addr = request.remote_addr
 
-            with open(STATS_TSV_PATH, mode = 'a', encoding = 'utf-8') as f:
-                # Seconds precision is 19 chars (2023-09-16 05:07:56), which leaves a wider gap when tabstops are displayed in the terminal.
-                data = "%s\t%s\t%s\n" % (datetime.utcnow().isoformat(sep=' ', timespec='seconds'), remote_addr, json.dumps(params))
-                f.write(data)
+            with app.app_context():
+                item = Stat(
+                    params_json = json.dumps(params),
+                    remote_addr = str(remote_addr),
+                )
+                db.session.add(item)
+                db.session.commit()
 
     else:
         return Response("Expected POST request parameters as JSON data", 400)
@@ -103,7 +142,7 @@ def releases():
     return jsonify(parse_toml(toml_file_path)), 200
 
 @login_manager.request_loader
-@app.route('/stats', methods = ['GET'])
+@app.route('/export', methods = ['GET'])
 def export():
     # Must use https:// except when testing locally.
     # Otherwise the Basic Auth creds are sent in clear text.
@@ -125,7 +164,21 @@ def export():
         if api_key != SECRET_API_KEY:
             return abort(403)
 
-        return send_file(STATS_TSV_PATH)
+        with app.app_context():
+
+            def _stat_to_row(x: Stat) -> Dict[str, str]:
+                row = dict()
+                row['id'] = str(x.id)
+                row['remote_addr'] = str(x.remote_addr)
+                row['created_at'] = str(x.created_at)
+                row['params_json'] = str(x.params_json)
+
+                return row
+
+            stats = Stat.query.all()
+            rows = [_stat_to_row(x) for x in stats]
+
+            return jsonify(rows), 200
 
     else:
         return abort(403)
@@ -158,5 +211,8 @@ def parse_toml(path: Path) -> Optional[TOMLDocument]:
     return t
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+
     if not IS_PYTHONANYWHERE:
         app.run(host='127.0.0.1', port=5000, debug=True)

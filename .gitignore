@@ -1,4 +1,5 @@
 *.log
+stats.tsv
 export.json
 
 # VS Code
