@@ -1,6 +1,6 @@
 [application]
 
-[[assets.releases]]
+[[application.releases]]
 date = "2024-01-01T21:00:00"
 version_tag = "v0.5.0-alpha.1"
 github_repo = "simsapa/simsapa"
