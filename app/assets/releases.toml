@@ -113,6 +113,14 @@ New features:
 [assets]
 
 [[assets.releases]]
+date = "2024-01-01T21:00:00"
+version_tag = "v0.5.0-alpha.1"
+github_repo = "simsapa/simsapa-assets"
+suttas_lang = ["af", "ar", "au", "bn", "ca", "cs", "de", "es", "ev", "fa", "fi", "fr", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "kln", "ko", "la", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sld", "sl", "sr", "sv", "ta", "th", "vi", "vu", "xct", "zh"]
+title = "Updates"
+description = "Database and index assets for Simsapa v0.5.0"
+
+[[assets.releases]]
 date = "2023-09-18T21:18:59"
 version_tag = "v0.4.0-alpha.1"
 github_repo = "simsapa/simsapa-assets"
