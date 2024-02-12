@@ -144,5 +144,3 @@ suttas_lang = []
 title = "Updates"
 description = ""
 
-[dpd]
-releases_feed_url = "https://github.com/digitalpalidictionary/digitalpalidictionary/releases.atom"
