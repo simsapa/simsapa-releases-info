@@ -1,12 +1,13 @@
 [application]
 
 [[application.releases]]
-date = "2024-02-12T07:30:00"
+date = "2024-03-08T08:30:00"
 version_tag = "v0.5.0-alpha.1"
 github_repo = "simsapa/simsapa"
 title = "New app version"
 description = """
 - DPD integration
+- Browser extensions
 - ...
 """
 
@@ -123,7 +124,7 @@ New features:
 [assets]
 
 [[assets.releases]]
-date = "2024-02-12T07:30:00"
+date = "2024-03-08T08:30:00"
 version_tag = "v0.5.0-alpha.1"
 github_repo = "simsapa/simsapa-assets"
 suttas_lang = ["af", "ar", "au", "bn", "ca", "cs", "de", "es", "ev", "fa", "fi", "fr", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "kln", "ko", "la", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sld", "sl", "sr", "sv", "ta", "th", "vi", "vu", "xct", "zh"]
