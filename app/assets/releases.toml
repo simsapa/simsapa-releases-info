@@ -1,6 +1,31 @@
 [application]
 
 [[application.releases]]
+date = "2024-03-16T06:00:00"
+version_tag = "v0.5.0-alpha.1"
+github_repo = "simsapa/simsapa"
+title = "New app version"
+description = """
+(See also: [features demo](https://www.youtube.com/watch?v=XFSHOBm9tT0) and [slides PDF](https://simsapa.github.io/pdf/simsapa-feature-demo-slides.pdf))
+
+- [Browser and editor extensions](https://github.com/simsapa/simsapa-extensions-and-plugins)
+  - Firefox, Chrome, Obsidian, Joplin, Emacs, Neovim, Google Docs
+  - Open a sidebar or double-click to lookup Pāli words in the dictionary, or search in the suttas.
+- DPD dictionary integration ([Digital Pāli Dictionary](https://digitalpalidictionary.github.io/))
+  - Deconstructor for Pāli compounds
+  - Automatic update of DPD (when DPD has a new release on github)
+- Dictionary content
+  - Commentary definitions of Pāli terms
+  - DPPN dictionary from palikanon.com
+  - Nyanatiloka's dictionary from palikanon.com
+- Compact UI
+  - View > Search Result sizes
+  - Toggle search options or search bar
+  - Sutta Study: select dictionary and deconstructor position
+- Search via API queries (`http://localhost:4848`)
+"""
+
+[[application.releases]]
 date = "2023-09-22T20:00:00"
 version_tag = "v0.4.1-alpha.1"
 github_repo = "simsapa/simsapa"
@@ -113,7 +138,7 @@ New features:
 [assets]
 
 [[assets.releases]]
-date = "2024-01-01T21:00:00"
+date = "2024-03-08T08:30:00"
 version_tag = "v0.5.0-alpha.1"
 github_repo = "simsapa/simsapa-assets"
 suttas_lang = ["af", "ar", "au", "bn", "ca", "cs", "de", "es", "ev", "fa", "fi", "fr", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "kln", "ko", "la", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sld", "sl", "sr", "sv", "ta", "th", "vi", "vu", "xct", "zh"]
