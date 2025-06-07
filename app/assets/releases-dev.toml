@@ -170,14 +170,16 @@ github_repo = "simsapa/simsapa-assets"
 suttas_lang = ["af", "ar", "bn", "ca", "cs", "de", "es", "fa", "fi", "fr", "gu", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "ko", "la", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sl", "sld", "sr", "sv", "ta", "th", "vi", "xct", "zh"]
 title = "Updated SuttaCentral content"
 description = """
-Updated sutta content from SuttaCentral
+Updated new sutta content from SuttaCentral.
 
-Because of a bug, the app will say 'This language is not available: ...', but this is not correct.
-
-After the db update is completed:
+If you have previously added sutta languages: Before running the update, remove the previously downloaded languages and add them again after the update to use the new content.
 
 - Open the Suttas > Sutta Languages menu
-- Remove the previously downloaded languages and add them again to use the updated content.
+- Remove additional languages
+- Restart the app, run the update
+- Restart the app, add back the languages you wish to use.
+
+Otherwise due to a bug the app will report 'This language is not available: ...', but this is not correct.
 """
 
 [[assets.releases]]
