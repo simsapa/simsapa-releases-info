@@ -32,6 +32,7 @@ else:
 ASSETS_DIR = Path(__file__).parent.joinpath("assets")
 RELEASES_TOML_MAIN_PATH = ASSETS_DIR.joinpath("releases.toml")
 RELEASES_TOML_DEV_PATH = ASSETS_DIR.joinpath("releases-dev.toml")
+RELEASES_TOML_SIMSAPA_NG_PATH = ASSETS_DIR.joinpath("releases-simsapa-ng.toml")
 STATS_TSV_PATH = ASSETS_DIR.joinpath("stats.tsv")
 
 if not STATS_TSV_PATH.exists():
@@ -55,6 +56,8 @@ def releases():
         channel = request.args.get('channel', default='main')
         if channel == 'development':
             toml_file_path = RELEASES_TOML_DEV_PATH
+        elif channel == 'simsapa-ng':
+            toml_file_path = RELEASES_TOML_SIMSAPA_NG_PATH
 
     elif request.method == 'POST' \
          and request.content_type == 'application/json':
@@ -73,8 +76,11 @@ def releases():
         else:
             no_stats = False
 
-        if params.get('channel', 'main') == 'development':
+        channel = params.get('channel', 'main')
+        if channel == 'development':
             toml_file_path = RELEASES_TOML_DEV_PATH
+        elif channel == 'simsapa-ng':
+            toml_file_path = RELEASES_TOML_SIMSAPA_NG_PATH
 
         if not no_stats:
             # On PythonAnywhere, request.remote_addr is the proxy's address.

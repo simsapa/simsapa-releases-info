@@ -1,0 +1,22 @@
+[application]
+
+[[application.releases]]
+date = "2025-12-18T15:00:00"
+version_tag = "v0.1.8"
+github_repo = "simsapa/simsapa-ng"
+title = "Development build"
+description = """
+Fixes and build updates.
+"""
+
+[assets]
+
+[[assets.releases]]
+date = "2025-12-10T12:50:18"
+version_tag = "v0.1.7"
+github_repo = "simsapa/simsapa-ng-assets"
+suttas_lang = ["af", "ar", "bn", "ca", "cs", "de", "es", "et", "fa", "fi", "fr", "gsw", "gu", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "ko", "la", "lo", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sl", "sld", "sr", "sv", "ta", "th", "tr", "vi", "xct", "zh"]
+title = "Development assets"
+description = """
+Development assets
+"""
