@@ -1,6 +1,19 @@
 [application]
 
 [[application.releases]]
+date = "2025-12-30T07:30:00"
+version_tag = "v0.1.9"
+github_repo = "simsapa/simsapa-ng"
+title = "v0.1.9"
+description = """
+- Reference Converter window
+- Reading mode button (hides search input UI)
+- New version update notifications
+- Fix storage selection dialog empty labels
+- (Android) Fix scroll to chapter subheading anchor
+"""
+
+[[application.releases]]
 date = "2025-12-18T15:00:00"
 version_tag = "v0.1.8"
 github_repo = "simsapa/simsapa-ng"
