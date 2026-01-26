@@ -1,6 +1,31 @@
 [application]
 
 [[application.releases]]
+date = "2026-01-26T13:26:59"
+version_tag = "v0.1.10"
+github_repo = "simsapa/simsapa-ng"
+title = "v0.1.10"
+description = """
+See the **asset downloads** section for Linux, MacOS, Windows and Android. **iOS (iPhone and iPad):** [Let me know](https://gambhiro.github.io/) if you have a developer account and are interested in helping to build `.ipa` files for Simsapa.
+
+New features and fixes:
+
+- Topic Index Window
+  + Using data from [index.readingfaithfully.org](https://index.readingfaithfully.org/)
+- Improved reference search data
+  + Using data from [Dhamma Vinaya Catalogue](https://github.com/dhammavinaya-tools/dhamma-vinaya-catalogue)
+- EPUB chapter navigation improvements
+- Footnotes in bottom bar
+- Title and Headword search mode
+- Plugin API
+  + For the [Firefox, Chrome, Obsidian and Joplin](https://github.com/simsapa/simsapa-extensions-and-plugins) plugins
+- Dictionary examples sutta links open in the app
+- Settings Window
+  + Shortcuts config for desktop
+- (Android) Fixed app crash for pinned tab state
+"""
+
+[[application.releases]]
 date = "2025-12-30T07:30:00"
 version_tag = "v0.1.9"
 github_repo = "simsapa/simsapa-ng"
