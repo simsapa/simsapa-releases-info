@@ -1,6 +1,40 @@
 [application]
 
 [[application.releases]]
+date = "2026-05-27T18:01:19Z"
+version_tag = "v0.4.2"
+github_repo = "simsapa/simsapa-ng"
+title = "v0.4.2"
+description = """
+See the **asset downloads** section for Linux, MacOS, Windows and Android. **iOS (iPhone and iPad):** [Let me know](https://gambhiro.github.io/) if you have a developer account and are interested in helping to build `.ipa` files for Simsapa.
+
+New features and fixes since v0.1.10:
+
+- Fulltext Search
+  - Pāli declension matching (bodhiṁ → bodhiyā) and accent folding (vinnana → viññāṇa)
+- On mobile, now **single tap** on a Pāli word for dictionary lookup, or long press to create a selection (the method in previous versions)
+- Built-in dictionary includes commentary bold definitions via DPD
+- Dictionary import (Stardict / Goldendict format)
+- Global Lookup hotkey (See Settings > Keybindings)
+- The S D L buttons select searching in Suttas / Dictionary / Library
+- The cog icon opens advanced options
+  - include/exclude commentaries
+  - filter the results by nikaya, etc.
+  - dictionaries: the lock icon toggles 'search only in this'
+- Includes CST suttas and commentaries
+  - Direct sutta mapping is work-in-progress, DN, MN, most SN works, should directly open the commentary
+  - For others: in the sutta top right Menu > Open Commentary will search for the sutta title to locate the CST file
+- Chanting Practice window
+  - Record chanting audio and playback for helping memorization
+- Bookmarks tab
+- Tab List menu
+  - The icon at the right end of sutta tabs
+  - or the back button on mobile
+
+(Continue at the Github Releases page)
+"""
+
+[[application.releases]]
 date = "2026-01-26T13:26:59"
 version_tag = "v0.1.10"
 github_repo = "simsapa/simsapa-ng"
