@@ -1,6 +1,15 @@
 [application]
 
 [[application.releases]]
+date = "2026-07-31T09:30:00"
+version_tag = "v1.0.0-alpha.4"
+github_repo = "simsapa/simsapa"
+title = "New app version"
+description = """
+New app version
+"""
+
+[[application.releases]]
 date = "2026-07-24T18:00:00"
 version_tag = "v1.0.0-alpha.1"
 github_repo = "simsapa/simsapa"
