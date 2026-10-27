@@ -191,10 +191,10 @@ New features:
 [assets]
 
 [[assets.releases]]
-date = "2026-10-22T17:31:29"
-version_tag = "v1.1.0-alpha.2"
+date = "2026-10-27T20:11:14"
+version_tag = "v1.1.0-alpha.4"
 github_repo = "simsapa/simsapa-assets"
-suttas_lang = ["af", "ar", "bn", "ca", "cs", "de", "es", "et", "fa", "fi", "fr", "gsw", "gu", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "kan", "ko", "la", "lo", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sl", "sld", "sr", "sv", "ta", "th", "tr", "vi", "xct", "zh"]
+suttas_lang = ["af", "ar", "bn", "ca", "cs", "de", "es", "et", "fa", "fi", "fr", "gsw", "gu", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "ka", "kan", "ko", "la", "lo", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sl", "sld", "sr", "sv", "ta", "th", "tr", "vi", "xct", "zh"]
 title = "Updates"
 description = ""
 
