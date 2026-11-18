@@ -2,9 +2,9 @@
 
 [[application.releases]]
 date = "2026-11-18T13:16:19"
-version_tag = "v1.3.0"
+version_tag = "v1.3.1"
 github_repo = "simsapa/simsapa"
-title = "v1.3.0"
+title = "v1.3.1"
 description = """
 Public release version
 """
