@@ -1,6 +1,31 @@
 [application]
 
 [[application.releases]]
+date = "2026-11-18T13:16:19"
+version_tag = "v1.3.1"
+github_repo = "simsapa/simsapa"
+title = "v1.3.1"
+description = """
+See the **asset downloads** on github for Linux, MacOS, Windows and Android.
+
+The [feature demo video](https://youtu.be/sHs6sPIQmqs) shows how the UI interface works.
+
+Feature highlights:
+
+- Fulltext search with Pāli declension matching
+- Suttas, commentaries, dictionaries and a book library
+  + Commentary tranlations from opentipitaka.org
+- Search result filtering options
+- Sutta Navigation window
+- Reading layout: line-by-line or side-by-side columns with multiple translations
+- Pāli text gloss analysis with export formats
+- Extensions and plugins for browsers and note taking app
+- Command line interface (@simsapa/cli npm package) for humans and AI agents
+
+(Continue at the Github Releases page)
+"""
+
+[[application.releases]]
 date = "2026-05-27T18:01:19Z"
 version_tag = "v0.4.2"
 github_repo = "simsapa/simsapa-ng"
@@ -82,6 +107,14 @@ Fixes and build updates.
 """
 
 [assets]
+
+[[assets.releases]]
+date = "2026-11-18T13:16:19"
+version_tag = "v1.3.0"
+github_repo = "simsapa/simsapa-assets"
+suttas_lang = ["af", "ar", "bn", "ca", "cs", "de", "es", "et", "fa", "fi", "fr", "gsw", "gu", "haw", "he", "hi", "hr", "hu", "id", "it", "jpn", "ka", "kan", "ko", "la", "lo", "lt", "lzh", "mr", "my", "nl", "no", "pgd", "pl", "pra", "pt", "ro", "ru", "si", "sk", "sl", "sld", "sr", "sv", "ta", "th", "tr", "vi", "xct", "zh"]
+title = "Updates"
+description = ""
 
 [[assets.releases]]
 date = "2026-05-26T09:34:49"
